@@ -1,8 +1,26 @@
+
+
 <input type="text" [(ngModel)]="title">
 {{title}}
 
+
+
 <div *ngIf="title==='Alf'">
   Hola pinche perro
+</div>
+<div *ngIf="title==='Vlad'">
+  Hola pinche perro
+</div>
+
+<div *ngIf="title==='Barush'">
+  Hola pinche perra
+</div>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'alf'">ou</p>
+  <p *ngSwitchCase="'vlad'">ad</p>
+  <p *ngSwitchCase="'barush'">adf</p>
+  <p *ngSwitchDefault>Nada perra</p>
 </div>
 
 <button (click)="addItem()">Add item</button>
@@ -16,3 +34,7 @@
     <button (click)="deleteItem()">delete</button>
   </li>
 </ul>
+
+<div *ngFor="let product of products">
+  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
+</div>
